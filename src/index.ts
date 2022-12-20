@@ -26,7 +26,7 @@ const httpsServer = https.createServer({
     console.log(`⚡️HTTPS[server]: Server is running at https://localhost:443. Mode: ${mode}`)
   })
 
-export const wss = wssAuction(httpsServer as unknown as Server<WebSocket>)
+export const wss = wssAuction(httpServer as unknown as Server<WebSocket>)
 
 httpsServer.on('upgrade', function upgrade(request, socket, head) {
   const { pathname } = parse(request?.url || '')
